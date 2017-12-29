@@ -1,21 +1,24 @@
 class SimpleOptionParser
 
-  attr_accessor :options
-  attr_accessor :arguments
+  attr_accessor :defaults
 
-  def initialize(options={})
-    @options = options
-    @arguments = []
-    ARGV.each do |arg|
-      if arg =~ %r{^--([\w\-]+)(=(.*))?$}
-        key, value = $1, $3
-        key = key.gsub('-', '_').to_sym
-        value = parse_value(value)
-        @options[key] = value
-      else
-        @arguments << arg
-      end
+  def self.parse(argv, defaults={})
+    new(defaults).parse(argv)
+  end
+
+  def initialize(defaults={})
+    @defaults = defaults
+  end
+
+  def parse(argv)
+    options = @defaults.dup
+    while argv.first =~ %r{^--([\w\-]+)(?:=(.*))?$}
+      key, value = $1, $2
+      key = key.gsub('-', '_').to_sym
+      options[key] = parse_value(value)
+      argv.shift
     end
+    options
   end
 
   def parse_value(value)
