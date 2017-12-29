@@ -15,5 +15,7 @@ A very simple option parser for ARGV.
   s.require_path  = 'lib'
 
   s.add_development_dependency 'bundler'
+  s.add_development_dependency 'minitest'
+  s.add_development_dependency 'minitest-power_assert'
   s.add_development_dependency 'rake'
 end
