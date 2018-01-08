@@ -1,5 +1,6 @@
+require 'minitest'
 require 'minitest/autorun'
-require 'minitest/power_assert'
+require 'minitest-power_assert'
 
 require 'simple_option_parser'
 
