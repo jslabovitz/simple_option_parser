@@ -1,8 +1,6 @@
-require_relative 'lib/simple_option_parser/version'
-
 Gem::Specification.new do |s|
   s.name          = 'simple_option_parser'
-  s.version       = SimpleOptionParser::VERSION
+  s.version       = '0.5'
   s.summary       = 'A very simple option parser for ARGV.'
   s.author        = 'John Labovitz'
   s.email         = 'johnl@johnlabovitz.com'
