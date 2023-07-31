@@ -6,7 +6,7 @@ require 'simple_option_parser'
 
 class SimpleOptionParser
 
-  class Test < MiniTest::Test
+  class Test < Minitest::Test
 
     def test_new_then_parse
       op = SimpleOptionParser.new
