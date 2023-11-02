@@ -49,6 +49,15 @@ class SimpleOptionParser
       }
     end
 
+    def test_multiple
+      op = SimpleOptionParser.new
+      argv = %w{--foo --bar=a --bar=b --zot=c}
+      options = op.parse(argv)
+      assert {
+        options == { foo: true, bar: ['a', 'b'], zot: 'c' }
+      }
+    end
+
   end
 
 end
