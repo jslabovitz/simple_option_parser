@@ -13,15 +13,21 @@ class SimpleOptionParser
   end
 
   def parse(argv)
-    options = @defaults.dup
+    options = {}
     while argv.first =~ %r{^--([\w\-]+)(?:=(.*))?$}
       key, value = $1, $2
       key = key.gsub('-', '_').to_sym
-      value = true if value.nil?
+      value = if value.nil?
+        true
+      elsif options.has_key?(key)
+        [options[key], value].flatten
+      else
+        value
+      end
       options[key] = value
       argv.shift
     end
-    HashStruct.new(options)
+    HashStruct.new(@defaults.merge(options))
   end
 
 end
