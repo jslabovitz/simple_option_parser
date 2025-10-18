@@ -16,7 +16,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'hashstruct', '~> 1.6'
 
-  s.add_development_dependency 'minitest', '~> 5.22'
+  s.add_development_dependency 'minitest', '~> 5.26'
   s.add_development_dependency 'minitest-power_assert', '~> 0.3'
-  s.add_development_dependency 'rake', '~> 13.2'
+  s.add_development_dependency 'rake', '~> 13.3'
+  s.add_development_dependency 'simple-rake-tasks', '~> 0.1'
 end
